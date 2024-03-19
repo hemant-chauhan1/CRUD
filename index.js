@@ -76,7 +76,8 @@ app.post("/edit/:_id",encoder,async(req,res)=>{
 
 
 app.get("/search",async(req,res)=>{
-    let search = req.query.search
+    try {
+        let search = req.query.search
     let data = await employee.find({
         $or:[
             {name:{$regex:`/*${search}/*`,$options:"i"}},
@@ -88,6 +89,10 @@ app.get("/search",async(req,res)=>{
         ]
     })
     res.render("index",{data:data})
+    }
+     catch (error) {
+        console.log(error)
+    }
 })    
 
 app.listen(8000,()=>console.log("server is running at http://localhost:8000"))
