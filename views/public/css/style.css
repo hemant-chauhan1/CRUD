@@ -1,0 +1,12 @@
+.background{
+    background: linear-gradient(navy,blue);
+}
+
+.mid-section{
+    height: 680px;
+    overflow: auto;
+}
+
+.mid-section::-webkit-scrollbar{
+    display: none;
+}
